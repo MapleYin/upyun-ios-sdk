@@ -2,14 +2,13 @@
 
 import Quick
 import Nimble
-import upyun-sdk
+import upyun_sdk
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
         describe("these will fail") {
-
-            it("can do maths") {
-                expect(1) == 2
+            it("AuthorisedString") {
+                expect(AuthorisedString(operatorString: "operator123", password: "password123", uri: "/upyun-temp/demo.jpg")) == "2"
             }
 
             it("can read") {

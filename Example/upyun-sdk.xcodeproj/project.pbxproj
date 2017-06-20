@@ -27,9 +27,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		667E0F9C1EF907AD0054028E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		04BF9215FD534E66F8BF24B8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		2567FA930880280550B76E77 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		04BF9215FD534E66F8BF24B8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		2567FA930880280550B76E77 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		377D659D9D38C0D494B0581F /* Pods-upyun-sdk_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upyun-sdk_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-upyun-sdk_Example/Pods-upyun-sdk_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* upyun-sdk_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "upyun-sdk_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,7 +55,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		847CA6602A7FAE26729106A2 /* Pods-upyun-sdk_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upyun-sdk_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-upyun-sdk_Example/Pods-upyun-sdk_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		86895339AFC031BD94D70F0E /* Pods-upyun-sdk_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upyun-sdk_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-upyun-sdk_Tests/Pods-upyun-sdk_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		8737D074FBE40A673F249B1B /* upyun-sdk.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "upyun-sdk.podspec"; path = "../upyun-sdk.podspec"; sourceTree = "<group>"; };
+		8737D074FBE40A673F249B1B /* upyun-sdk.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "upyun-sdk.podspec"; path = "../upyun-sdk.podspec"; sourceTree = "<group>"; };
 		C4D1C4D6822761C27BA2FC1C /* Pods_upyun_sdk_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_upyun_sdk_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF441F102BC13489AC0118B7 /* Pods_upyun_sdk_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_upyun_sdk_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24AA1E9CD4C927AF40BE904 /* Pods-upyun-sdk_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upyun-sdk_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-upyun-sdk_Tests/Pods-upyun-sdk_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +204,7 @@
 				607FACE31AFB9204008FA782 /* Resources */,
 				6E5B50A64D0425F2C35EBFDB /* [CP] Embed Pods Frameworks */,
 				2D2D6FB1F1B143E363D00ED9 /* [CP] Copy Pods Resources */,
+				667E0F9C1EF907AD0054028E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -215,10 +228,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = ZEKMY4ZK97;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = ZEKMY4ZK97;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -496,6 +511,7 @@
 			baseConfigurationReference = 847CA6602A7FAE26729106A2 /* Pods-upyun-sdk_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZEKMY4ZK97;
 				INFOPLIST_FILE = "upyun-sdk/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -510,6 +526,7 @@
 			baseConfigurationReference = 377D659D9D38C0D494B0581F /* Pods-upyun-sdk_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZEKMY4ZK97;
 				INFOPLIST_FILE = "upyun-sdk/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -523,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86895339AFC031BD94D70F0E /* Pods-upyun-sdk_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = ZEKMY4ZK97;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -543,6 +561,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D24AA1E9CD4C927AF40BE904 /* Pods-upyun-sdk_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = ZEKMY4ZK97;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

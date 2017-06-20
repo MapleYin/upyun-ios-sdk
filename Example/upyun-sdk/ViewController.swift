@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import upyun_sdk
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let en = AuthorisedString(operatorString: "operator123", password: "password123", uri: "/upyun-temp/demo.jpg",method: .put)
+        
+        print("AuthorisedString:\(en)");
+  
     }
 
     override func didReceiveMemoryWarning() {

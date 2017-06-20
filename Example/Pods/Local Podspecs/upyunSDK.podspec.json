@@ -1,0 +1,28 @@
+{
+  "name": "upyunSDK",
+  "version": "0.1.0",
+  "summary": "A short description of upyunSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/mapleiny/upyun-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mapleiny": "i@maple.im"
+  },
+  "source": {
+    "git": "https://github.com/mapleiny/upyun-sdk.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "upyun-sdk/Classes/**/*",
+  "public_header_files": "Pod/Classes/**/*.h",
+  "dependencies": {
+    "CryptoSwift": [
+      "~> 0.6"
+    ]
+  }
+}

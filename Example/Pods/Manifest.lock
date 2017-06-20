@@ -1,7 +1,9 @@
 PODS:
+  - CryptoSwift (0.6.9)
   - Nimble (5.1.1)
   - Quick (1.0.0)
-  - upyun-sdk (0.1.0)
+  - upyun-sdk (0.1.0):
+    - CryptoSwift (~> 0.6)
 
 DEPENDENCIES:
   - Nimble (~> 5.1.1)
@@ -13,10 +15,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  CryptoSwift: a22f6ba238e9ce4d26ee7bf45b9ed82e7122d4a0
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
-  upyun-sdk: b9d42fa0e9e5b97b3b8be83cef297eef143ddd08
+  upyun-sdk: fb08379f3b0d20348c5970cc391eaa7e1038d0a6
 
-PODFILE CHECKSUM: 9035b502094ad5b479203c28ec0cb516135d7f0b
+PODFILE CHECKSUM: 5b9a5acdf648904a5f1b9b7a147fc56e02824746
 
 COCOAPODS: 1.2.0

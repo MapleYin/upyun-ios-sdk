@@ -18,5 +18,11 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "upyun-sdk/Classes/**/*"
+  "source_files": "upyun-sdk/Classes/**/*",
+  "public_header_files": "Pod/Classes/**/*.h",
+  "dependencies": {
+    "CryptoSwift": [
+      "~> 0.6"
+    ]
+  }
 }
