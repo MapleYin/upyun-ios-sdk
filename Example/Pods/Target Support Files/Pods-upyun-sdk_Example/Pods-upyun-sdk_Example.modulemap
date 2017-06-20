@@ -1,0 +1,6 @@
+framework module Pods_upyun_sdk_Example {
+  umbrella header "Pods-upyun-sdk_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
