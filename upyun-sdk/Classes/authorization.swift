@@ -25,7 +25,7 @@ func CreateAuthorisedString(
     dateFormat.dateFormat = "EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'"
     let formatedString = dateFormat.string(from: date!)
     
-    let signatureOrigin = "\(passwordEncode),\(method.rawValue)&\(uri)&\(formatedString)&7ac66c0f148de9519b8bd264312c4d64"
+    let signatureOrigin = "\(passwordEncode),\(method.rawValue)&\(uri)&\(formatedString)"
     let signature = signatureOrigin.utf8.lazy.map({ $0 as UInt8 }).sha1().toBase64()
     return "UPYUN \(operatorString):\(signature!)"
 }

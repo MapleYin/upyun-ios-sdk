@@ -75,6 +75,7 @@
 		640A7963CC931FEF6614A5F6445DB78E /* Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08664EFE6B907F05B49C4FA669E74EA /* Generics.swift */; };
 		65F5217D44A557FC16218DE5DE348C35 /* CwlCatchBadInstruction.h in Headers */ = {isa = PBXBuildFile; fileRef = B57D5B5D8F4C34E9F5A23AE4F1FC0D58 /* CwlCatchBadInstruction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		66D59DEF1EF9371000171A58 /* client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D59DEE1EF9371000171A58 /* client.swift */; };
+		66D59DF11EFA3BA600171A58 /* ImageProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D59DF01EFA3BA600171A58 /* ImageProcess.swift */; };
 		67D7F228DC874108E2DC4E3F98441D6E /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236FF09369682CF8345621658BB5EF1 /* SHA1.swift */; };
 		67DE5BACB678FBE43D8AEA5AA1A84022 /* CTR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D72BFB7CF35B06BB5693BE4AE870AB0 /* CTR.swift */; };
 		68B01E6BDCA39676E1F6EF4B9BD03834 /* UInt32+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C176EF74C674C145BF9B5998DF960 /* UInt32+Extension.swift */; };
@@ -310,6 +311,7 @@
 		669BB8FF7C68A9AECC8CB58076DCB37F /* authorization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = authorization.swift; sourceTree = "<group>"; };
 		66A6A579460676D5A6D1CF8F5647CADF /* Example.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Example.swift; path = Sources/Quick/Example.swift; sourceTree = "<group>"; };
 		66D59DEE1EF9371000171A58 /* client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = client.swift; sourceTree = "<group>"; };
+		66D59DF01EFA3BA600171A58 /* ImageProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcess.swift; sourceTree = "<group>"; };
 		6927644502215F2E6355A05B31A8761F /* Pods-upyun-sdk_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-upyun-sdk_Example-resources.sh"; sourceTree = "<group>"; };
 		6D359C1DEDAABE39281C69FD5757A03E /* Cryptors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cryptors.swift; path = Sources/CryptoSwift/Cryptors.swift; sourceTree = "<group>"; };
 		6F32565996602908E0DD17192D1DC4F1 /* Nimble-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-umbrella.h"; sourceTree = "<group>"; };
@@ -806,6 +808,7 @@
 		F198EF281195E28229DFD8D0B5752CBC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66D59DF01EFA3BA600171A58 /* ImageProcess.swift */,
 				669BB8FF7C68A9AECC8CB58076DCB37F /* authorization.swift */,
 				9E489DE5AFF85B1C29F05A297EDAC34D /* config.swift */,
 				58DB8640FB0068273209CED12427B4D8 /* request.swift */,
@@ -1255,6 +1258,7 @@
 				E28CCD4E05FF0CA245ECCB01421BFBAB /* Rabbit+Foundation.swift in Sources */,
 				36F8A0EBEE24E1ED7DF70B54237C95C5 /* Rabbit.swift in Sources */,
 				2AC27B1087A476D84A3B07C6103D0E45 /* RandomAccessBlockModeWorker.swift in Sources */,
+				66D59DF11EFA3BA600171A58 /* ImageProcess.swift in Sources */,
 				23633CC30EB51118AB1396D04F442F78 /* RandomAccessCryptor.swift in Sources */,
 				0CE725310C54DAA2AB6DAF1FA0B57EBE /* RandomBytesSequence.swift in Sources */,
 				0A09FDE133E395DCB2A16F7990C18A09 /* SecureBytes.swift in Sources */,
