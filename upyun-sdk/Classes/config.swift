@@ -25,3 +25,29 @@ public enum Method:String {
     case put = "PUT"
     case head = "HEAD"
 }
+
+public struct Config {
+    
+    private static var _global:Config?
+    
+    static var global:Config {
+        assert(_global == nil, "You Need Set Global Config Call `Config.setGlobal(username:password:)`")
+        return _global!
+    }
+    
+    static func setGlobal(username:String,password:String){
+        self._global = Config(username: username,password: password)
+    }
+    
+    init(username:String,password:String) {
+        self.username = username
+        self.password = password
+    }
+    
+    var schema:Schema = .HTTPS
+    var host:Host = .AUTO
+    
+    var username : String
+    var password : String
+}
+

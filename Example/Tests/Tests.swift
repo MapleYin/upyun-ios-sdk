@@ -8,7 +8,7 @@ class TableOfContentsSpec: QuickSpec {
     override func spec() {
         describe("these will fail") {
             it("AuthorisedString") {
-                expect(AuthorisedString(operatorString: "operator123", password: "password123", uri: "/upyun-temp/demo.jpg")) == "2"
+                
             }
 
             it("can read") {

@@ -15,10 +15,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let en = AuthorisedString(operatorString: "operator123", password: "password123", uri: "/upyun-temp/demo.jpg",method: .put)
-        
-        print("AuthorisedString:\(en)");
-  
+        var params = UpLoadParams(bucket:"bucket", saveKey:"saveKey")
+        params.contentLengthRange = SizeRange(min:1,max:12)
+        params.date = Date()
+        Upload(Data(), params: params)
     }
 
     override func didReceiveMemoryWarning() {

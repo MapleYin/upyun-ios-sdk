@@ -14,16 +14,14 @@ func CreateAuthorisedString(
     uri:String,
     method:Method = .get,
     policy
-    date:Date? = Date(),
+    date:Date = Date(),
     ContentMD5:String? = nil) -> String {
     
     // password
     let passwordEncode = password.md5()
     
     // date
-    let dateFormat = DateFormatter()
-    dateFormat.dateFormat = "EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'"
-    let formatedString = dateFormat.string(from: date!)
+    let formatedString = date.standFormat()
     
     let signatureOrigin = "\(passwordEncode),\(method.rawValue)&\(uri)&\(formatedString)"
     let signature = signatureOrigin.utf8.lazy.map({ $0 as UInt8 }).sha1().toBase64()
