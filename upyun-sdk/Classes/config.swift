@@ -30,12 +30,17 @@ public struct Config {
     
     private static var _global:Config?
     
-    static var global:Config {
-        assert(_global == nil, "You Need Set Global Config Call `Config.setGlobal(username:password:)`")
-        return _global!
+    public static var global:Config {
+        get {
+            assert(_global != nil, "You Need Set Global Config Call `Config.setGlobal(username:password:)`")
+            return _global!
+        }
+        set {
+            _global = newValue
+        }
     }
     
-    static func setGlobal(username:String,password:String){
+    public static func setGlobal(username:String,password:String){
         self._global = Config(username: username,password: password)
     }
     
@@ -44,8 +49,8 @@ public struct Config {
         self.password = password
     }
     
-    var schema:Schema = .HTTPS
-    var host:Host = .AUTO
+    public var schema:Schema = .HTTPS
+    public var host:Host = .AUTO
     
     var username : String
     var password : String

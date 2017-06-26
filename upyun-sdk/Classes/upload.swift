@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// <#Description#>
+/// 返回图片相关信息
 ///
 /// - Meta: 获取图片信息
 /// - ThemeColor: 获取图片主题色
@@ -16,7 +16,6 @@ public enum GmkerlType : String {
     case Meta = "get_meta"
     case ThemeColor = "get_theme_color"
 }
-
 
 public struct SizeRange<T>:CustomStringConvertible {
     var min:T
@@ -32,7 +31,6 @@ public struct SizeRange<T>:CustomStringConvertible {
     }
 }
 
-
 public struct UpLoadParams {
     
     public init(bucket:String, saveKey:String) {
@@ -42,7 +40,7 @@ public struct UpLoadParams {
     
     public var bucket : String  // 文件上传到的服务
     public var saveKey : String  // 文件保存路径
-    public var expiration : TimeInterval = 1800 // 请求的过期时间
+    public var expiration : TimeInterval = Date().timeIntervalSince1970+1800 // 请求的过期时间
     public var date : Date? // 请求日期时间
     public var contentMD5 : String? // 上传文件的 MD5 值
     public var returnUrl : String? // 同步通知 URL
@@ -54,23 +52,21 @@ public struct UpLoadParams {
     public var imageWidthRange : SizeRange<Int>? // 图片宽度限制
     public var imageHeightRange : SizeRange<Int>? // 图片高度限制
     public var xGmkerlThumb : String? // 图片预处理 TODO
-    public var xGmkerlType : GmkerlType?
+    public var xGmkerlType : GmkerlType? // 返回图片相关信息
     public var apps : String? // 异步预处理   TODO
     public var b64encoded:Bool? // 对通过 Base64 编码上传的文件进行 Base64 解码
     public var extParam : String? // 额外参数
     
-    func pramasObject() -> [String: String] {
+    public var pramasDic:[String: String] {
         let mirror = Mirror(reflecting: self)
         var result: [String: String] = [:]
         for (labelMaybe, valueMaybe) in mirror.children {
             
-            guard let label = labelMaybe else {
+            guard let label = labelMaybe,let validValue = unwrap(valueMaybe) else {
                 continue
             }
-            let validValue = unwrap(valueMaybe)
-            if validValue is NSNull {
-                continue
-            }
+            
+            let validateLabel = keySwitch(label)
             
             var value:String;
 
@@ -93,24 +89,52 @@ public struct UpLoadParams {
             default:
                 continue
             }
-            result[label] = value
+            result[validateLabel] = value
         }
 
         return result
     }
+    
+    public var encode:String? {
+        let jsonData = try! JSONSerialization.data(withJSONObject: self.pramasDic, options: .init(rawValue: 0))
+        let jsonString = String(data: jsonData, encoding: .utf8)
+        return jsonString?.base64Encode()
+    }
+    
+    private func keySwitch(_ key:String) -> String {
+        return key.replacingOccurrences(of: "([a-zA-Z0-9])(?=[A-Z])", with: "$1-", options: .regularExpression, range: Range(uncheckedBounds: (lower: key.startIndex, upper: key.endIndex))).lowercased()
+    }
 }
 
-public func Upload(_ file:Data, params:UpLoadParams) -> Client? {
+public func Upload(_ file:Data, params:UpLoadParams) throws -> Client {
     
-    let urlString = "\(Config.global.schema)://\(Config.global.host)/\(params.bucket)"
+    let urlString = "\(Config.global.schema)://\(Config.global.host.rawValue)/\(params.bucket)"
     
     guard let url = URL(string: urlString) else {
         assert(true, "Error `bucket` string")
-        return nil
+        return Client()
     }
     var request = URLRequest(url: url)
-    request.allHTTPHeaderFields = params.pramasObject()
+    request.httpMethod = "POST"
+    
+    // Authorization
+    let authorisedString = CreateAuthorisedString(operator: Config.global.username,
+                                                  password: Config.global.password,
+                                                  uri: "/\(params.bucket)",
+                                                  method: .post,
+                                                  policy: params,
+                                                  ContentMD5: nil)
     
     
-    return Client.upload(request, fileData: file)
+    
+    let body = MultipartFormData()
+    body.append(authorisedString.data(using: .utf8)!, withName: "authorization")
+    body.append((params.encode!.data(using: .utf8))!,withName:"policy")
+    body.append(params)
+    body.append(file, withName: "file", fileName: "test.png")
+    
+    request.setValue(body.contentType, forHTTPHeaderField: "Content-Type")
+
+    let encodeData = try body.encode()
+    return Client.upload(request, fileData: encodeData)
 }

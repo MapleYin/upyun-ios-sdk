@@ -12,7 +12,8 @@ import CryptoSwift
 extension String {
     func base64Encode() -> String? {
         let stringData = self.data(using: .utf8)
-        let base64String = stringData?.base64EncodedString()
+        let encodeData = stringData?.base64EncodedData(options: Data.Base64EncodingOptions(rawValue: 0))
+        let base64String = String(data: encodeData!, encoding: .utf8)
         return base64String
     }
     

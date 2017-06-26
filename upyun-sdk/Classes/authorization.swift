@@ -1,4 +1,4 @@
-//
+
 //  authorization.swift
 //  Pods
 //
@@ -7,23 +7,23 @@
 //
 
 import Foundation
+import CryptoSwift
 
 func CreateAuthorisedString(
-    operatorString:String,
+    `operator`:String,
     password:String,
     uri:String,
     method:Method = .get,
-    policy
-    date:Date = Date(),
+    policy:UpLoadParams,
     ContentMD5:String? = nil) -> String {
     
     // password
     let passwordEncode = password.md5()
     
-    // date
-    let formatedString = date.standFormat()
     
-    let signatureOrigin = "\(passwordEncode),\(method.rawValue)&\(uri)&\(formatedString)"
-    let signature = signatureOrigin.utf8.lazy.map({ $0 as UInt8 }).sha1().toBase64()
-    return "UPYUN \(operatorString):\(signature!)"
+    
+    let signatureOrigin = "\(method.rawValue)&\(uri)&\(policy.encode!)"
+    
+    let signature = try! HMAC(key: passwordEncode, variant: .sha1).authenticate(signatureOrigin.utf8.lazy.map({ $0 as UInt8 })).toBase64()!
+    return "UPYUN \(`operator`):\(signature)"
 }

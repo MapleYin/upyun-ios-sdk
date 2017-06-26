@@ -14,13 +14,16 @@ import Foundation
 ///
 /// - Parameter any: any value
 /// - Returns: unwrap value
-func unwrap(_ any:Any) -> Any {
+func unwrap(_ any:Any) -> Any? {
     let mi = Mirror(reflecting: any)
     
     if mi.displayStyle != .optional {
         return any
     }
     
-    if mi.children.count == 0 { return NSNull() }
+    if mi.children.count == 0 { return nil }
     return mi.children.first!.value
 }
+
+
+typealias HTTPHeaders = [String:String]
