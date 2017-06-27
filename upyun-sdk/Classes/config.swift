@@ -19,7 +19,7 @@ public enum Host:String {
     case CM = "v3.api.upyun.com"     // China Mobile
 }
 
-public enum Method:String {
+public enum HTTPMethod:String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
@@ -40,17 +40,19 @@ public struct Config {
         }
     }
     
-    public static func setGlobal(username:String,password:String){
-        self._global = Config(username: username,password: password)
+    public static func setGlobal(username:String,password:String,bucket:String){
+        self._global = Config(username: username, password: password, bucket: bucket)
     }
     
-    init(username:String,password:String) {
+    init(username:String,password:String,bucket:String) {
         self.username = username
         self.password = password
+        self.bucket = bucket
     }
     
     public var schema:Schema = .HTTPS
     public var host:Host = .AUTO
+    public var bucket:String
     
     var username : String
     var password : String

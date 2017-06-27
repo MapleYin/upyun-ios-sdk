@@ -68,9 +68,9 @@ class MultipartFormData {
     }
     
     func append(_ params:UpLoadParams) {
-        for (key,value) in params.pramasDic {
-            append(value.data(using: .utf8)!, withName: key)
-        }
+//        for (key,value) in params.pramasDic {
+//            append(value.data(using: .utf8)!, withName: key)
+//        }
     }
     
     func append(_ data: Data, withName name: String) {

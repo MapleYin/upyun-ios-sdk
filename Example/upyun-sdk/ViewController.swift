@@ -51,10 +51,10 @@ class ViewController: UIViewController {
     
     
     func uploadImage(_ imageData:Data) {
-        Config.setGlobal(username: "maple", password: "maple1105")
-        Config.global.schema = .HTTP
+        Config.setGlobal(username: "maple", password: "maple1105", bucket: "maple-static")
+        Config.global.schema = .HTTPS
         
-        let params = UpLoadParams(bucket:"maple-static", saveKey:"/test.png")
+        let params = UpLoadParams.init(path: "test.png")
             
         do {
             let client = try Upload(imageData, params: params)
